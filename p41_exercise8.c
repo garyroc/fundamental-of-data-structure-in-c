@@ -1,3 +1,5 @@
+//Write an equivalent recursive version of the magic square program(Program 1.23).
+
 #include <stdlib.h>
 #include <stdio.h>
 
