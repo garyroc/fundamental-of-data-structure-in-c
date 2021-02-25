@@ -40,7 +40,7 @@ int** make2dArray(int rows,int cols)
 
 int** make2dArray(int rows, int cols)
 {
-    int **x, i;
+    int **x;
 
     CALLOC(x,rows,sizeof(*x));
 
