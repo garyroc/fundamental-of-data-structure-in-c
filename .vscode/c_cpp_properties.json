@@ -12,11 +12,11 @@
             ],
             "compilerPath": "C:\\LLVM\\bin\\clang++.exe",
             "cStandard": "c17",
-            "cppStandard": "c++20",
             "compilerArgs": [
                 "--target=x86_64-w64-mingw"
             ],
-            "intelliSenseMode": "clang-x64"
+            "intelliSenseMode": "clang-x64",
+            "cppStandard": "c++20"
         }
     ],
     "version": 4
