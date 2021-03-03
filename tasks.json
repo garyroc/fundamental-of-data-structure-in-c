@@ -2,30 +2,64 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Compile", 
-      "command": "clang++", 
+      "label": "Compile",
+      "command": "clang++",
       "args": [
         "${file}",
         "-o",
         "${fileDirname}/${fileBasenameNoExtension}.exe",
-        "-g", 
+        "-g",
         "-Wall",
         "-static-libgcc",
         "-fcolor-diagnostics",
-        "--target=x86_64-w64-mingw", 
-        "-std=c++20" 
-      ], 
-      "type": "shell", 
+        "--target=x86_64-w64-mingw",
+        "-std=c++20"
+      ],
+      "type": "shell",
       "group": {
         "kind": "build",
-        "isDefault": true 
+        "isDefault": true
       },
       "presentation": {
         "echo": true,
-        "reveal": "always", 
-        "focus": false, 
-        "panel": "shared" 
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
       }
+    },
+    {
+      "type": "cppbuild",
+      "label": "C/C++: clang.exe",
+      "command": "C:\\LLVM\\bin\\clang.exe",
+      "args": [
+        "-g",
+        "${file}",
+        "-o",
+        "${fileDirname}\\${fileBasenameNoExtension}.exe",
+        "--target=x86_64-w64-mingw"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": "build",
+      "detail": "編譯器: C:\\LLVM\\bin\\clang.exe"
+    },
+    {
+      "type": "cppbuild",
+      "label": "C/C++: clang.exe 建置使用中檔案",
+      "command": "C:\\LLVM\\bin\\clang.exe",
+      "args": [
+        "-g",
+        "${file}",
+        "-o",
+        "${fileDirname}\\${fileBasenameNoExtension}.exe",
+        "--target=x86_64-w64-mingw"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": "build",
+      "detail": "編譯器: C:\\LLVM\\bin\\clang.exe"
     }
   ]
 }
