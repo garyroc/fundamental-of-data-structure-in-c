@@ -1,5 +1,6 @@
 #define MAX_TERM 101
 #define MAX_POLY 15
+#define COMPARE(a,b) ( a > b) ? 1:(a < b) ? -1:0
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -8,6 +9,8 @@ typedef struct{
     float coef;
     int expon;
 } polynomial;
+
+
 
 void readPoly(polynomial poly[][MAX_TERM],int term[],int *polyNum)
 {
@@ -44,9 +47,41 @@ void printPoly(polynomial poly[][MAX_TERM],int term[],int *polyNum)
         printf("%5.1f*X^%d\n", poly [*polyNum][term[*polyNum]].expon);
 }
 
+void padd (polynomial poly[][MAX_TERM],int term[],int poly1,int poly2,int *polyNum)
+{
+    int i = 0, j = 0,counter = 0;
+    polyNum++;
+    while(i <= poly1 && j < poly2){
+        switch(COMPARE(poly[poly1][i].expon, poly[poly2][j].expon))
+        {
+            case 1 :
+                poly[*polyNum][counter].expon = poly[poly1][i].expon;
+                poly[*polyNum][counter++].coef = poly[poly1][i++].coef;
+                break;
+            case -1 :
+                poly[*polyNum][counter].expon = poly[poly2][j].expon;
+                poly[*polyNum][counter++].coef = poly[poly2][j++].coef;
+                break;
+            case 0 :
+                poly[*polyNum][counter].expon = poly[poly1][i].expon;
+                poly[*polyNum][counter++].coef = poly[poly1][i++].coef + poly[poly2][j++].coef;
+        }
+    }
+
+    while(i <= poly1){
+        poly[*polyNum][counter].expon = poly[poly1][i].expon;
+        poly[*polyNum][counter++].coef = poly[poly1][i++].coef;
+    }
+
+    while(j <= poly2){
+        poly[*polyNum][counter].expon = poly[poly2][j].expon;
+        poly[*polyNum][counter++].coef = poly[poly2][j++].coef;
+    }
+}
+
 void pmult(polynomial poly[][MAX_TERM],int term[],int poly1,int poly2,int *polyNum)
 {
-    //polynomail multiplation poly1 * poly2 = poly3
+    //polynomail multiplation  poly[++polyNum][MAX_TERM] = poly[1][MAX_TERM] * poly[2][MAX_TERM]
     float temp[term[poly1] * term[poly2]];
     for (int i = 0; i < term[poly1];i++){
         for (int j = 0; j < term[poly2];j++)

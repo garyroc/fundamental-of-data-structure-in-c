@@ -20,9 +20,9 @@ void readPoly(polynomial poly[],int *n)
 
     for (int i = 0; i < *n;i++)
     {
-        printf("\nCoefficient %d :", *n + 1);
+        printf("\nCoefficient %d :",  i + 1 );
         scanf("%f", &(poly + i)->coef);
-        printf("\nExponantial %d :", *n + 1);
+        printf("\nExponantial %d :",  i + 1 );
         scanf("%d", &(poly + i)->expon);
     }
 
