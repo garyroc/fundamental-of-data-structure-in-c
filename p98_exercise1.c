@@ -10,11 +10,10 @@ void charFrequency(char* string)
         frequency[i] = 0;
     }
     for (int i = 0; i < n; i++){
-        if(*(string+i) < 97) //capital to small letter
+        if(*(string+i) < 97) //convert capital letter to small letter
             *(string + i) += 32;
         frequency[*(string + i) - 97]++;
     }
-
     for (int i = 0; i < 26;i++){
         if(frequency[i])
             printf("%c : %f\n", i + 97, frequency[i] / n);
@@ -24,6 +23,6 @@ void charFrequency(char* string)
 
 int main()
 {
-    charFrequency("asdasdjijczcmnolwq");
+    charFrequency("asdasdjijczcmnolwq"); // test caes
     return 0;
 }
