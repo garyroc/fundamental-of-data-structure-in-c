@@ -25,16 +25,18 @@ void fail(char *pat)
 
 int pmatch(char* string,char *pat)
 {/*KMP algorithm*/
-    int i = 0, j = o;
+    int i = 0, j = 0;
     int lens = strlen(string);
-    int lenp = strlem(pat);
+    int lenp = strlen(pat);
     while( i< lens && j < lenp){
         if(string[i] == pat[j]){
             i++;
             j++;
         }
-        else if{
-            
-        } 
+        else if(!j)
+            j++;
+        else
+            j = failure[j - 1] + 1;
     }
+    return ((j == lenp) ? (i-lenp): -1);
 }
