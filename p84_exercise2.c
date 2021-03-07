@@ -11,21 +11,22 @@ typedef struct{
 
 void fastTranspose(matrix a[],matrix b[])
 {
-    int rowTerm[MAX_COL];
+    int startingPos[MAX_COL];
 
+    int i, j;
     if(a->value > 0){
-        for (int i = 0; i < a->col;i++)
-            rowTerm[i] = 0;
-        for (int i = 0; i < a->value;i++)
-            rowTerm[(a+i)->col]++;
-        int counter = 1;
-        for (int i = 0; i < a -> col;i++){
-            for (int j = 0; j < rowTerm[i];j++){
-                b[counter].row = a[counter].col;
-                b[counter].col = a[counter].row;
-                b[counter].value = b[counter].value;
-                counter++;
-            }
+        for (i = 1; i < a->col;i++)
+            startingPos[i] = 0;
+        startingPos[0] = 1;
+        for (i = 0; i < a->value;i++)
+            startingPos[(a+i)->col + 1]++;
+        for (i = 1; i < a[0].col;i++)
+            startingPos[i] += startingPos[i - 1];
+        for (i = 1; i <= a[0].value;i++){
+            j = startingPos[a[i].col]++;
+            b[j].row = a[i].col;
+            b[j].col = a[i].row;
+            b[j].value = a[i].value;
         }
     }   
 }

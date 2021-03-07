@@ -70,15 +70,15 @@ void mmult (matrix a[], matrix b[],matrix d[])
 
     /*set boundry condition*/
     a[a[0].value + 1].row = a[0].row;
-    b[b[0].value + 1].col = b[0].col;
-    b[b[0].value + 1].row = 0;
+    newB[b[0].value + 1].col = b[0].col;
+    newB[b[0].value + 1].row = 0;
 
     int sum = 0, row = a[1].row, column;
     int totalD = 0, rowBegin = 1;
 
-    for (i = 1; i < a[0].value;){
+    for (i = 1; i <= a[0].value;){
         column = newB[1].col;
-        for (j = 1; j < b[0].value + 1;){
+        for (j = 1; j <= b[0].value + 1;){
             /* multiply row of a by column of b */
             if (a[i].row != row){
                 storeSum(d, &totalD, row, column, &sum);
