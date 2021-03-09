@@ -29,23 +29,6 @@
     },
     {
       "type": "cppbuild",
-      "label": "C/C++: clang.exe",
-      "command": "C:\\LLVM\\bin\\clang.exe",
-      "args": [
-        "-g",
-        "${file}",
-        "-o",
-        "${fileDirname}\\${fileBasenameNoExtension}.exe",
-        "--target=x86_64-w64-mingw"
-      ],
-      "options": {
-        "cwd": "${workspaceFolder}"
-      },
-      "group": "build",
-      "detail": "編譯器: C:\\LLVM\\bin\\clang.exe"
-    },
-    {
-      "type": "cppbuild",
       "label": "C/C++: clang.exe 建置使用中檔案",
       "command": "C:\\LLVM\\bin\\clang.exe",
       "args": [
@@ -58,6 +41,9 @@
       "options": {
         "cwd": "${workspaceFolder}"
       },
+      "problemMatcher": [
+        "$gcc"
+      ],
       "group": "build",
       "detail": "編譯器: C:\\LLVM\\bin\\clang.exe"
     }
