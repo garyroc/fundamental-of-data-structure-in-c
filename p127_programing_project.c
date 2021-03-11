@@ -11,7 +11,7 @@
 #define ENTRANCE_COLl 1
 
 /*Figure 3.8*/
-bool maze[MAZE_ROW_SIZE + 2][MAZE_COL_SIZE+2] = {
+bool maze[MAZE_ROW_SIZE + 2][MAZE_COL_SIZE + 2] = {
     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
     {1,0,1,0,0,0,1,1,0,0,0,1,1,1,1,1,1},
     {1,1,0,0,0,1,1,0,1,1,1,0,0,1,1,1,1},
@@ -107,7 +107,6 @@ void dfs(int row, int col)
             maze[nextRow][nextCol] = 0;
         }
     }
-    return;
 }
 
 int main()
@@ -117,4 +116,6 @@ int main()
 
     if(!exitFound)
         printf("The maze does not have a path.\n");
+
+    return 0;
 }
