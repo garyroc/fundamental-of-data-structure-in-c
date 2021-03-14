@@ -82,7 +82,6 @@ void printPath()
 /*Recursively depth first travel the maze*/
 void dfs(int row, int col)
 {
-
     if(row == EXIT_ROW && col == EXIT_COL){
         printPath();
         exitFound = true;

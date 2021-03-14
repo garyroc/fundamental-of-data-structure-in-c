@@ -1,3 +1,4 @@
+/*implemet two stack in one array*/
 #include <stdio.h>
 #include <stdlib.h>
 
