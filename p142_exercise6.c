@@ -1,4 +1,4 @@
-/*multiple mqueue*/
+/*multiple queues*/
 
 #include <stdlib.h>
 #include <stdio.h>
